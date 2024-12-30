@@ -75,7 +75,7 @@ const Form = () => {
   const getUsdtBalance = async () => {
     try {
       const balance = await window.contract.s_USDTBalance(await signer.getAddress());
-      setBalance(balance.toString());
+      setBalance(balance.toString() / 1000000);
     } catch (error) {
       console.log(error);
     }
@@ -88,7 +88,7 @@ const Form = () => {
         return;
       }
       await approveUSDT();
-      const tx = await window.contract.depositUSDT(ethers.utils.parseUnits(usdtAmount, 144)); // Assuming USDT has 6 decimals
+      const tx = await window.contract.depositUSDT(ethers.utils.parseUnits(usdtAmount, 6)); // Assuming USDT has 6 decimals
       await tx.wait();
       await getUsdtBalance();
     } catch (error) {
