@@ -7,10 +7,10 @@ Our project addresses a crucial gap in the current landscape of De-Fi on the blo
 By utilizing Gelato functions, our platform executes stock purchases off-chain, ensuring that the tokens you hold are genuinely backed by real stocks on the market. This enhances trust, transparency, and the overall value proposition of RWAs on-chain, effectively bridging the gap between traditional finance and blockchain technology.
 
 #### Currently Deployed on EDUChain Sepolia and Supports the Following Stocks:
-- [AAPL](https://edu-chain-testnet.blockscout.com/address/0xB565656a18bd287A28C6aBEBBcbBDB54DDe37eeb)
-- [AMZN](https://edu-chain-testnet.blockscout.com/address/0xD5c035A6e65F3F1445aCA33C531b2545a0D3d744)
-- [NASDAQ](https://edu-chain-testnet.blockscout.com/address/0xDD7e4D53570E998446576C1FFb3c53D2E9b5139f)
-- [S&P500](https://edu-chain-testnet.blockscout.com/address/0x6Cc97B5BfE61d1B985D80a71fB785e35933148a0)
+- [AAPL](https://edu-chain-testnet.blockscout.com/address/0xB084e51B2DE5aDf85AF9E20fC5588488354bA1a4)
+- [AMZN](https://edu-chain-testnet.blockscout.com/address/0x5c7cC8C50ABCAFe4F246D7Bf07800C38cfC7eD63)
+- [NASDAQ](https://edu-chain-testnet.blockscout.com/address/0x94C1863a76407F10b077e057C2FF742DF4200d21)
+- [S&P500](https://edu-chain-testnet.blockscout.com/address/0xDB01b6391b244C3Fd1D5677ab67d613C659F0c46)
 
 #### The flow of the Dapp is as follows:-
 - Approve and deposit the suffcient amount of USDT to the contract.
@@ -50,18 +50,18 @@ $ npm run dev
 Environment variables are needed for Web3 functions as they use the [Alpaca API](https://app.alpaca.markets/signup) for stock trading.
 
 #### Gelato Deployed Functions:
-- [MarketAAPL](https://app.gelato.network/functions/task/0xc2330bd6287ef7b31e264c82eae4de56c1afb39ef023fd5c3de6f90fcd13fa24:656476)
-- [BuyAAPL](https://app.gelato.network/functions/task/0x023c484f869685f8b97a5bf7a4ce491ec55e966dccf78f5de0d5adc69371ce7d:656476)
-- [SellAAPL](https://app.gelato.network/functions/task/0xf80d647129ca02ce3dc484fbdbbb5bf8cd49892f4846e6c7c1527ab7038de3e8:656476)
-- [MarketAMZN](https://app.gelato.network/functions/task/0x342428a2c9e1f5130e01ab0efe3fc2cbedff5ec16fe48441f768def597515ed6:656476)
-- [BuyAMZN](https://app.gelato.network/functions/task/0xa41b9647a8973820bce93e500c3278470039f9e659ecd5a2b7db2a7966e6d88c:656476)
-- [SellAMZN](https://app.gelato.network/functions/task/0x2ffd2c2ec9043eda23a75e9ba2a9c14da3aceee319eed17681950c9fdaae090a:656476)
-- [MarketNASDAQ](https://app.gelato.network/functions/task/0x664663e7676e0fda75a10bd890f957cf9038db9ebe42af793384ef700a48397a:656476)
-- [BuyNDAQ](https://app.gelato.network/functions/task/0x90b216944a461cec86cb022238429ae89c0ab851e8adfd8ee361567fcfb6623f:656476)
-- [SellNDAQ](https://app.gelato.network/functions/task/0xbcc59aa585d10bb34f1d01d37bb92a0ed128ed430918ada9d6153ecc50cc48f4:656476)
-- [MarketSPY](https://app.gelato.network/functions/task/0x0c612f9ac789ca7e9417a2ad11430252b9dadff4ae623ad7703fdb82d1c074b0:656476)
-- [BuySPY](https://app.gelato.network/functions/task/0x8262f92d7dc54ebc72f7b00ecc442ebcb5fa3d82b6ad56426dbb405e9e9e384b:656476)
-- [SellSPY](https://app.gelato.network/functions/task/0xcfa6a7d0c64fcbda34069194d4ccbae72552d67f0718584acfe14a510e56309e:656476)
+- [MarketAAPL](https://app.gelato.network/functions/task/0x1a7bd34a35be8c1d28b272ae1d03c34cd6e6870f2728034f7ec90453b9f0c54a:656476)
+- [BuyAAPL](https://app.gelato.network/functions/task/0x6af6c86865bbb9a9840fca5acd94823281be1834912fcbca49669e25956ae756:656476)
+- [SellAAPL](https://app.gelato.network/functions/task/0x302deddd8c891b4620b7e4f5a75b426766723451309f0ec21af84071f7394861:656476)
+- [MarketAMZN](https://app.gelato.network/functions/task/0xfc23dcba6c872af226b561ba489a5cbc304e8cf9fdd1146b83ab6884c6888747:656476)
+- [BuyAMZN](https://app.gelato.network/functions/task/0x99c390435da4fed9d0f78eb2c789881238fe59f9d61a62abbfd10049ca610a7a:656476)
+- [SellAMZN](https://app.gelato.network/functions/task/0x5b4f80e5f393b1af79b3a9f277535654187f3f8c74b2fb7caf810f115e2ab6d9:656476)
+- [MarketNASDAQ](https://app.gelato.network/functions/task/0x34d21448395fd59dfb1cf79d1277dcaa6a6941e2597c1778312823a303152e9a:656476)
+- [BuyNDAQ](https://app.gelato.network/functions/task/0xd498debbeb02798ec8e6ce90f82acdb861e8b64638a2ed4fb8330aa85666a3c8:656476)
+- [SellNDAQ](https://app.gelato.network/functions/task/0x2789a73c6a5f52b78dce27fd0f969b4d5f5f628987ddc84ef8d0afd5a01a86a0:656476)
+- [MarketSPY](https://app.gelato.network/functions/task/0x3a32435c120a49b60bb40c733ed95b7aecad23b696c74d21e3b78b450a4335e9:656476)
+- [BuySPY](https://app.gelato.network/functions/task/0x028b0378a870186f1335675349bcef56882c30e628a196578de2a745ab17d002:656476)
+- [SellSPY](https://app.gelato.network/functions/task/0x8d2541e30f994ae2a13abfc7c98b7fc291fdf39dd6125befa72d93cb40d41321:656476)
 
 - **Market Function**: Manages pausing and unpausing of the contract based on market status.
 - **Buy Function**: Listens for `BuyRequest` events, interacts with the Alpaca API to purchase stock, and mints the corresponding ERC20 token to the trader.

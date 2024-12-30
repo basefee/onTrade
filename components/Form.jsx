@@ -6,7 +6,7 @@ const nasdaqContractABI = require('../nasdaq-contract-abi.json');
 const spyContractABI = require('../spy-contract-abi.json');
 const usdtContractABI = require("../usdt-contract-abi.json");
 
-const usdtContractAddress = '0x77721D19BDfc67fe8cc46ddaa3cc4C94e6826E3C';
+const usdtContractAddress = '0x69467f0DA163b3d266Cb16af3838B87A3CD6D953';
 
 import React, { useState, useEffect } from 'react';
 
@@ -23,10 +23,10 @@ const Form = () => {
 
   // Mapping stock symbols to their respective contract addresses and ABIs
   const stockContracts = {
-    AAPL: { address: "0xB565656a18bd287A28C6aBEBBcbBDB54DDe37eeb", abi: contractABI },
-    AMZN: { address: "0xD5c035A6e65F3F1445aCA33C531b2545a0D3d744", abi: amznContractABI },
-    NASDAQ: { address: "0xDD7e4D53570E998446576C1FFb3c53D2E9b5139f", abi: nasdaqContractABI },
-    SPY: { address: "0x6Cc97B5BfE61d1B985D80a71fB785e35933148a0", abi: spyContractABI },
+    AAPL: { address: "0xB084e51B2DE5aDf85AF9E20fC5588488354bA1a4", abi: contractABI },
+    AMZN: { address: "0x5c7cC8C50ABCAFe4F246D7Bf07800C38cfC7eD63", abi: amznContractABI },
+    NASDAQ: { address: "0x94C1863a76407F10b077e057C2FF742DF4200d21", abi: nasdaqContractABI },
+    SPY: { address: "0xDB01b6391b244C3Fd1D5677ab67d613C659F0c46", abi: spyContractABI },
   };
 
   useEffect(() => {
@@ -35,13 +35,18 @@ const Form = () => {
       if (selectedStockContract) {
         provider = new ethers.providers.Web3Provider(window.ethereum);
         signer = provider.getSigner();
-        window.contract = new ethers.Contract(selectedStockContract.address, selectedStockContract.abi, signer);
+        window.contract = new ethers.Contract(
+          selectedStockContract.address,
+          selectedStockContract.abi,
+          signer // Attach the signer here
+        );
         getUsdtBalance();
       } else {
         console.error('Selected stock does not have a corresponding contract.');
       }
     }
-  }, [selectedStock]); // Re-run this effect when selectedStock changes
+  }, [selectedStock]);
+  
   
 
   const handleUsdtChange = (event) => {
@@ -59,11 +64,11 @@ const Form = () => {
   const approveUSDT = async () => {
     try {
       const usdtContract = new ethers.Contract(usdtContractAddress, usdtContractABI, signer);
-      const tx = await usdtContract.approve(stockContracts[selectedStock]?.address, usdtAmount);
+      const tx = await usdtContract.approve(stockContracts[selectedStock]?.address, ethers.utils.parseUnits(usdtAmount, 6));
       await tx.wait();
       console.log('Approval transaction hash:', tx.hash);
     } catch (error) {
-      console.log(error);
+      console.error("Error approving USDT:", error);
     }
   };
 
@@ -78,14 +83,20 @@ const Form = () => {
 
   const handleDeposit = async () => {
     try {
+      if (!window.contract) {
+        console.error("Contract is not initialized.");
+        return;
+      }
       await approveUSDT();
-      const tx = await window.contract.depositUSDT(usdtAmount);
+      const tx = await window.contract.depositUSDT(ethers.utils.parseUnits(usdtAmount, 144)); // Assuming USDT has 6 decimals
       await tx.wait();
       await getUsdtBalance();
     } catch (error) {
       console.log(error);
     }
   };
+  
+  
 
   const handleWithdraw = async () => {
     try {
